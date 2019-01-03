@@ -17,20 +17,24 @@ namespace W.Dict
             // register the event that is fired after the key press.
             hook.KeyPressed +=
                 new EventHandler<KeyPressedEventArgs>(hook_KeyPressed);
-            // register the control + alt + F12 combination as hot key.
+
+            // register the alt + 3 combination as hot key.
             hook.RegisterHotKey(Dict.ModifierKeys.Alt, Keys.D3);
             Deactivate += Form1_Deactivate;
             HideResult();
+            Player = new WMPLib.WindowsMediaPlayer();
         }
 
         private void Form1_Deactivate(object sender, EventArgs e)
         {
+            TopMost = false;
             TopLevel = false;
             Hide();
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
+            开机自动启动ToolStripMenuItem.Checked = AutoStartup.GetIfStartUp();
             textBox1.Focus();
         }
 
@@ -74,11 +78,6 @@ namespace W.Dict
             }
         }
 
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            SwitchVisibility();
-        }
-
         void hook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
             SwitchVisibility();
@@ -98,18 +97,8 @@ namespace W.Dict
 
         private void PlayFile(string url)
         {
-            Player = new WMPLib.WindowsMediaPlayer();
-            Player.PlayStateChange += Player_PlayStateChange;
             Player.URL = url;
             Player.controls.play();
-        }
-
-        private void Player_PlayStateChange(int NewState)
-        {
-            if ((WMPLib.WMPPlayState)NewState == WMPLib.WMPPlayState.wmppsStopped)
-            {
-                //Actions on stop
-            }
         }
 
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
@@ -121,6 +110,7 @@ namespace W.Dict
         {
             if (Visible)
             {
+                TopMost = false;
                 TopLevel = false;
                 Hide();
             }
@@ -129,7 +119,19 @@ namespace W.Dict
                 Show();
                 TopLevel = true;
                 textBox1.Focus();
+                TopMost = true;
+                Activate();
             }
+        }
+
+        private void 开机自动启动ToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            AutoStartup.SetStartup(开机自动启动ToolStripMenuItem.Checked);
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

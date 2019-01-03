@@ -17,7 +17,6 @@ namespace W.Dict
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            KeyboardHook hook = new KeyboardHook();
         }
     }
 }

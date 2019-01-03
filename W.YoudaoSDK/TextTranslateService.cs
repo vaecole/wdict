@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using W;
 
 namespace W.YoudaoSDK
@@ -21,7 +20,7 @@ namespace W.YoudaoSDK
             string lang = IdentifyLanguage(query);
             string tLang = GetTargetLanguage(lang);
             string url = string.Format("http://openapi.youdao.com/api?appKey={0}&q={1}&from={2}&to={3}&sign={4}&salt={5}",
-                AppId, System.Web.HttpUtility.UrlDecode(query, Encoding.GetEncoding("UTF-8")), lang, tLang, sign, salt);
+                AppId, System.Web.HttpUtility.UrlDecode(query), lang, tLang, sign, salt);
             var req = new RestSharp.RestRequest(url);
 
             var response = client.ExecuteAsGet<TranslateResult>(req, "GET");
