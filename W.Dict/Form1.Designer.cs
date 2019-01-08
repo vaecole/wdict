@@ -86,7 +86,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(366, 174);
+            this.textBox2.Size = new System.Drawing.Size(366, 235);
             this.textBox2.TabIndex = 2;
             // 
             // panel1
@@ -125,7 +125,7 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "WDict伟哥词典";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
             // 
@@ -136,25 +136,25 @@
             this.toolStripSeparator1,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 54);
             // 
             // 开机自动启动ToolStripMenuItem
             // 
             this.开机自动启动ToolStripMenuItem.CheckOnClick = true;
             this.开机自动启动ToolStripMenuItem.Name = "开机自动启动ToolStripMenuItem";
-            this.开机自动启动ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.开机自动启动ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.开机自动启动ToolStripMenuItem.Text = "开机自动启动";
             this.开机自动启动ToolStripMenuItem.CheckedChanged += new System.EventHandler(this.开机自动启动ToolStripMenuItem_CheckedChanged);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -163,15 +163,13 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 237);
+            this.ClientSize = new System.Drawing.Size(394, 298);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox2);
             this.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.ShowInTaskbar = false;
             this.Text = "WDict";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

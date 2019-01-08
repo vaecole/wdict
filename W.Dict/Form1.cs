@@ -55,7 +55,7 @@ namespace W.Dict
         }
 
         private bool IsExpanded = true;
-        private int ExpandExtraHeight = 178;
+        private int ExpandExtraHeight = 235;
         private void ShowResult(string result)
         {
             if (!IsExpanded)

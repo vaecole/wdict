@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W.Dict", "W.Dict.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W.YoudaoSDK", "..\W.YoudaoSDK\W.YoudaoSDK.csproj", "{E07B265F-916C-43C8-94AB-224D327E95BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W.TXSDK", "..\W.TXSDK\W.TXSDK.csproj", "{0B743F93-64B3-453B-AE75-E936D6A71176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W.Common", "W.Common\W.Common.csproj", "{07C5F87F-2AEC-4836-9200-F505313121E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E07B265F-916C-43C8-94AB-224D327E95BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E07B265F-916C-43C8-94AB-224D327E95BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E07B265F-916C-43C8-94AB-224D327E95BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B743F93-64B3-453B-AE75-E936D6A71176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B743F93-64B3-453B-AE75-E936D6A71176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B743F93-64B3-453B-AE75-E936D6A71176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B743F93-64B3-453B-AE75-E936D6A71176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C5F87F-2AEC-4836-9200-F505313121E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C5F87F-2AEC-4836-9200-F505313121E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C5F87F-2AEC-4836-9200-F505313121E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C5F87F-2AEC-4836-9200-F505313121E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

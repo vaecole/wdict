@@ -10,8 +10,8 @@ namespace W.YoudaoSDK
 {
     public class TextTranslateService
     {
-        const string AppId = "your Id", AppSecret = "your secret";
-        public TranslateResult Translate(string query)
+        const string AppId = "yourId", AppSecret = "yourSecret";
+        public YDTranslateResult Translate(string query)
         {
             var client = new RestSharp.RestClient("http://openapi.youdao.com/api/");
             string salt = WUtil.NewSalt();
@@ -23,14 +23,14 @@ namespace W.YoudaoSDK
                 AppId, System.Web.HttpUtility.UrlDecode(query), lang, tLang, sign, salt);
             var req = new RestSharp.RestRequest(url);
 
-            var response = client.ExecuteAsGet<TranslateResult>(req, "GET");
+            var response = client.ExecuteAsGet<YDTranslateResult>(req, "GET");
             if (!response.IsSuccessful)
                 throw response.ErrorException;
             return response.Data;
         }
 
 
-        internal static string IdentifyLanguage(string text)
+        public static string IdentifyLanguage(string text)
         {
             if (text.Any(c => (c >= 65 && c < 91) || (c >= 97 && c < 123)))
             {
@@ -51,7 +51,7 @@ namespace W.YoudaoSDK
         }
     }
 
-    public class TranslateResult
+    public class YDTranslateResult
     {
         [JsonProperty("query")]
         public string Query { get; set; }
@@ -88,8 +88,7 @@ namespace W.YoudaoSDK
             var details = JsonConvert.DeserializeObject<TranslateResultDetail>(Basic);
 
             var resultBuilder = new StringBuilder();
-            resultBuilder.AppendLine(string.Join(";", translations));
-            resultBuilder.AppendLine("============================");
+            resultBuilder.AppendLine("【基本释义】: " + string.Join(";", translations));
             resultBuilder.AppendLine(details.ToString());
             return resultBuilder.ToString();
         }
@@ -112,10 +111,10 @@ namespace W.YoudaoSDK
         public override string ToString()
         {
             var resultBuilder = new StringBuilder();
-            resultBuilder.AppendLine(nameof(考试词库) + ": " + string.Join(";", 考试词库 ?? new string[0]));
-            resultBuilder.AppendLine(nameof(美式音标) + ": " + 美式音标);
-            resultBuilder.AppendLine(nameof(英式音标) + ": " + 英式音标);
-            resultBuilder.AppendLine(nameof(详细释义) + ": " + string.Join(Environment.NewLine, 详细释义 ?? new string[0]));
+            resultBuilder.AppendLine("【" + nameof(考试词库) + "】: " + string.Join(";", 考试词库 ?? new string[0]));
+            resultBuilder.AppendLine("【" + nameof(美式音标) + "】: " + 美式音标);
+            resultBuilder.AppendLine("【" + nameof(英式音标) + "】: " + 英式音标);
+            resultBuilder.AppendLine("【" + nameof(详细释义) + "】: " + string.Join(Environment.NewLine, 详细释义 ?? new string[0]));
             return resultBuilder.ToString();
         }
     }

@@ -93,6 +93,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\W.TXSDK\W.TXSDK.csproj">
+      <Project>{0b743f93-64b3-453b-ae75-e936d6a71176}</Project>
+      <Name>W.TXSDK</Name>
+    </ProjectReference>
     <ProjectReference Include="..\W.YoudaoSDK\W.YoudaoSDK.csproj">
       <Project>{e07b265f-916c-43c8-94ab-224d327e95ba}</Project>
       <Name>W.YoudaoSDK</Name>
