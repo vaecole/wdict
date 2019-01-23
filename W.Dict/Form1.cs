@@ -121,6 +121,7 @@ namespace W.Dict
                 textBox1.Focus();
                 TopMost = true;
                 Activate();
+                textBox1.SelectAll();
             }
         }
 
@@ -132,6 +133,11 @@ namespace W.Dict
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            textBox1.SelectAll();
         }
     }
 }
