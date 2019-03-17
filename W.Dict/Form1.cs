@@ -7,6 +7,7 @@ namespace W.Dict
 {
     public partial class Form1 : Form
     {
+        private bool _isFirstStart = true;
         KeyboardHook hook = new KeyboardHook();
         private TextTranslateService TranslateService = new TextTranslateService();
         public Form1()
@@ -34,8 +35,15 @@ namespace W.Dict
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            开机自动启动ToolStripMenuItem.Checked = AutoStartup.GetIfStartUp();
-            textBox1.Focus();
+            if (!_isFirstStart)
+            {
+                开机自动启动ToolStripMenuItem.Checked = AutoStartup.GetIfStartUp();
+                textBox1.Focus();
+            }
+            else
+            {
+                SwitchVisibility();
+            }
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
