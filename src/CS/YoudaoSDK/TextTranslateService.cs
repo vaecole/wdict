@@ -4,13 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using W;
 
-namespace W.YoudaoSDK
+namespace W.Dict.YoudaoSDK
 {
     public class TextTranslateService
     {
-        const string AppId = "yourId", AppSecret = "yourSecret";
+        const string AppId = "7e04e694e30529dd", AppSecret = "FHtnqjskSouDRrH08QMukBl4IycJzLQ8";
         public YDTranslateResult Translate(string query)
         {
             var client = new RestSharp.RestClient("http://openapi.youdao.com/api/");

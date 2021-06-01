@@ -106,7 +106,7 @@
             // 
             this.btn_audio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_audio.BackColor = System.Drawing.Color.Transparent;
-            this.btn_audio.BackgroundImage = global::W.Dict.Properties.Resources.speaker;
+            this.btn_audio.BackgroundImage = System.Drawing.Image.FromFile("./Resources/speaker.ico");
             this.btn_audio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_audio.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_audio.FlatAppearance.BorderSize = 0;

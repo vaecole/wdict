@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using W.YoudaoSDK;
-using Newtonsoft.Json;
+using Microsoft.Extensions.Logging;
+using NAudio.Wave;
+using W.Dict.YoudaoSDK;
 
 namespace W.Dict
 {
@@ -10,8 +11,14 @@ namespace W.Dict
         private bool _isFirstStart = true;
         KeyboardHook hook = new KeyboardHook();
         private TextTranslateService TranslateService = new TextTranslateService();
-        public Form1()
+        private WaveOutEvent outputDevice;
+        private AudioFileReader audioFile;
+
+        private readonly ILogger<Form1> _logger;
+        public Form1(ILogger<Form1> logger)
         {
+            _logger = logger;
+            _logger.LogDebug(20, "Doing hard work! {Action}", "Mark");
             InitializeComponent();
             Shown += Form1_Shown;
             FormClosed += Form1_FormClosed;
@@ -20,10 +27,14 @@ namespace W.Dict
                 new EventHandler<KeyPressedEventArgs>(hook_KeyPressed);
 
             // register the alt + 3 combination as hot key.
-            hook.RegisterHotKey(Dict.ModifierKeys.Alt, Keys.D3);
+            hook.RegisterHotKey(Dict.ModifierKeys.Alt, Keys.D4);
             Deactivate += Form1_Deactivate;
             HideResult();
-            Player = new WMPLib.WindowsMediaPlayer();
+            if (outputDevice == null)
+            {
+                outputDevice = new WaveOutEvent();
+                outputDevice.PlaybackStopped += (s, e) => outputDevice?.Stop();
+            }
         }
 
         private void Form1_Deactivate(object sender, EventArgs e)
@@ -98,15 +109,9 @@ namespace W.Dict
 
             var query = textBox1.Text.Trim();
             var audioUrl = "http://dict.youdao.com/dictvoice?audio=" + query;
-            PlayFile(audioUrl);
-        }
-
-        WMPLib.WindowsMediaPlayer Player;
-
-        private void PlayFile(string url)
-        {
-            Player.URL = url;
-            Player.controls.play();
+            audioFile = new AudioFileReader(audioUrl);
+            outputDevice.Init(audioFile);
+            outputDevice.Play();
         }
 
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
