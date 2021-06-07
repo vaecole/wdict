@@ -53,7 +53,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.Info;
             this.button1.Location = new System.Drawing.Point(297, 3);
             this.button1.Name = "button1";
@@ -67,7 +67,7 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("新宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("新宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(259, 29);
@@ -80,7 +80,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox2.ForeColor = System.Drawing.SystemColors.InfoText;
             this.textBox2.Location = new System.Drawing.Point(15, 51);
             this.textBox2.Multiline = true;
@@ -106,14 +106,14 @@
             // 
             this.btn_audio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_audio.BackColor = System.Drawing.Color.Transparent;
-            this.btn_audio.BackgroundImage = System.Drawing.Image.FromFile("./Resources/speaker.ico");
+            this.btn_audio.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_audio.BackgroundImage")));
             this.btn_audio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_audio.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_audio.FlatAppearance.BorderSize = 0;
             this.btn_audio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_audio.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btn_audio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_audio.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_audio.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_audio.ForeColor = System.Drawing.Color.Transparent;
             this.btn_audio.Location = new System.Drawing.Point(268, 3);
             this.btn_audio.Name = "btn_audio";
@@ -132,6 +132,7 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.开机自动启动ToolStripMenuItem,
             this.toolStripSeparator1,
@@ -167,7 +168,7 @@
             this.ClientSize = new System.Drawing.Size(394, 298);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox2);
-            this.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
