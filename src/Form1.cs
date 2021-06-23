@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Extensions.Logging;
 using NAudio.Wave;
@@ -31,11 +30,6 @@ namespace W.Dict
             hook.RegisterHotKey(Dict.ModifierKeys.Alt, Keys.D4);
             Deactivate += Form1_Deactivate;
             HideResult();
-            if (outputDevice == null)
-            {
-                outputDevice = new WaveOutEvent();
-                outputDevice.PlaybackStopped += (s, e) => outputDevice?.Stop();
-            }
         }
 
         private void Form1_Deactivate(object sender, EventArgs e)
@@ -107,12 +101,25 @@ namespace W.Dict
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
                 return;
-
-            var query = textBox1.Text.Trim();
-            var audioUrl = "http://dict.youdao.com/dictvoice?audio=" + query;
-            audioFile = new AudioFileReader(audioUrl);
-            outputDevice.Init(audioFile);
-            outputDevice.Play();
+            try
+            {
+                btn_audio.Enabled = false;
+                var query = textBox1.Text.Trim();
+                var audioUrl = "http://dict.youdao.com/dictvoice?audio=" + query;
+                WaveOutEvent outputDevice = new();
+                outputDevice.PlaybackStopped += (s, e) => outputDevice?.Stop();
+                AudioFileReader audioFile = new(audioUrl);
+                outputDevice.Init(audioFile);
+                outputDevice.Play();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("btn_audio_Click", ex);
+            }
+            finally
+            {
+                btn_audio.Enabled = true;
+            }
         }
 
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
